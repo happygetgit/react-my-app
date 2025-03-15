@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
+  const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
+
   const handleClick = () => {
     console.log("Uppercase was clicked");
     let newText = text.toUpperCase();
@@ -13,12 +15,26 @@ export default function TextForm(props) {
     setText(newText);
   };
 
+  const handleclearClick = () => {
+    console.log("Clear Text was clicked");
+    let newText = "";
+    setText(newText);
+  };
+
+  const findEmailID = () => {
+    console.log("Find EmailID was clicked");
+    let email = text.match(emailRegex);
+    console.log(email.join(","));
+    setEmail(email.join(", "));
+  };
+
   const handleChange = (event) => {
     console.log("On change worked");
     setText(event.target.value);
   };
 
   const [text, setText] = useState("");
+  const [email, setEmail] = useState("No EmailID Found");
   return (
     <>
       <div className="container">
@@ -27,13 +43,12 @@ export default function TextForm(props) {
           <label htmlFor="myBox" className="form-label">
             Email textarea
           </label>
-          <input
+          <textarea
             className="form-control"
             id="myBox"
             value={text}
             onChange={handleChange}
             rows="8"
-            cols="18"
           />
         </div>
         <button className="btn btn-primary mx-2" onClick={handleClick}>
@@ -41,6 +56,12 @@ export default function TextForm(props) {
         </button>
         <button className="btn btn-primary mx-2" onClick={handlelowClick}>
           Convert to LowerCase
+        </button>
+        <button className="btn btn-primary mx-2" onClick={handleclearClick}>
+          Clear Text
+        </button>
+        <button className="btn btn-primary mx-2" onClick={findEmailID}>
+          Find EmailId
         </button>
       </div>
       <div className="container my-2">
@@ -51,6 +72,10 @@ export default function TextForm(props) {
         <p>{0.008 * text.split(" ").length} Minutes read</p>
         <h2>Preview</h2>
         <p>{text}</p>
+      </div>
+      <div className="container my-2">
+        <h1>Email Id in the paragraph:</h1>
+        <p>{email}</p>
       </div>
     </>
   );
