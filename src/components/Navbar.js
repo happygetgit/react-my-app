@@ -34,6 +34,87 @@ export default function Navbar(props) {
               </a>
             </li>
           </ul>
+          <div
+            className="form-check btn-group p-2"
+            role="group"
+            aria-label="Basic radio toggle button group"
+          >
+            <input
+              className="form-check-input "
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault1"
+              value={props.bgcolors[0]}
+              checked={props.selected === props.bgcolors[0]}
+              onChange={(e) => {
+                props.selectedMode(e.target.value);
+              }}
+            />
+            <label
+              className="form-check-label ms-2 me-5 "
+              htmlFor="flexRadioDefault1"
+              style={{ color: props.myStyle.color }}
+            >
+              {props.bgcolors[0]} mode
+            </label>
+
+            <input
+              className="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault2"
+              value={props.bgcolors[1]}
+              checked={props.selected === props.bgcolors[1]}
+              onChange={(e) => {
+                props.selectedMode(e.target.value);
+              }}
+            />
+            <label
+              className="form-check-label ms-2 me-5"
+              htmlFor="flexRadioDefault2"
+              style={{ color: props.myStyle.color }}
+            >
+              {props.bgcolors[1]} mode
+            </label>
+
+            <input
+              className="form-check-input "
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault1"
+              value={props.bgcolors[2]}
+              checked={props.selected === props.bgcolors[2]}
+              onChange={(e) => {
+                props.selectedMode(e.target.value);
+              }}
+            />
+            <label
+              className="form-check-label ms-2 me-5 "
+              htmlFor="flexRadioDefault1"
+              style={{ color: props.myStyle.color }}
+            >
+              {props.bgcolors[2]} mode
+            </label>
+
+            <input
+              className="form-check-input "
+              type="radio"
+              name="flexRadioDefault"
+              id="flexRadioDefault1"
+              value={props.bgcolors[3]}
+              checked={props.selected === props.bgcolors[3]}
+              onChange={(e) => {
+                props.selectedMode(e.target.value);
+              }}
+            />
+            <label
+              className="form-check-label ms-2 me-5 "
+              htmlFor="flexRadioDefault1"
+              style={{ color: props.myStyle.color }}
+            >
+              {props.bgcolors[3]} mode
+            </label>
+          </div>
           <div className={`form-check form-switch text-${props.myStyle}`}>
             <input
               className="form-check-input"

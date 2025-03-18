@@ -7,12 +7,22 @@ export default function TextForm(props) {
     console.log("Uppercase was clicked");
     let newText = text.toUpperCase();
     setText(newText);
+    if (text === "") {
+      props.showAlert("Enter the text", "Warning");
+    } else {
+      props.showAlert("Converted to Uppercase", "Success");
+    }
   };
 
   const handlelowClick = () => {
     console.log("LowerCase was clicked");
     let newText = text.toLowerCase();
     setText(newText);
+    if (text === "") {
+      props.showAlert("Enter the text", "Warning");
+    } else {
+      props.showAlert("Converted to lowercase", "Success");
+    }
   };
 
   const handleclearClick = () => {
@@ -40,9 +50,7 @@ export default function TextForm(props) {
       <div className="container">
         <h1>{props.heading}</h1>
         <div className="mb-3">
-          <label htmlFor="myBox" className="form-label">
-            Email textarea
-          </label>
+          {/* <label htmlFor="myBox" className="form-label"></label> */}
           <textarea
             className="form-control"
             id="myBox"
