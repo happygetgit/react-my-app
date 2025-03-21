@@ -2,11 +2,11 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
-import About from "./components/About";
+// import About from "./components/About";
 import React, { useState } from "react";
 import Alert from "./components/Alert";
 
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [modetext, setmodeText] = useState("Light Mode");
@@ -18,7 +18,8 @@ function App() {
   const [mode, setMode] = useState("");
   const [alert, setAlert] = useState(null);
   const [selectedOption, setSelectedOption] = useState(""); // State for selected radio button
-  const [bgcolors, selectedbg] = useState(["blue", "red", "green", "yellow"]);
+  //const [bgcolors, selectedbg] = useState(["blue", "red", "green", "yellow"]);
+  const bgcolors = ["blue", "red", "green", "yellow"];
 
   const toggleMode = () => {
     if (mode === "dark") {
@@ -90,37 +91,35 @@ function App() {
 
   return (
     <>
-      <Router>
-        <Navbar
-          title="TextUtils"
-          home="Home"
-          aboutText="About"
-          mode={mode}
-          toggleMode={toggleMode}
-          myStyle={myStyle}
-          modeText={modetext}
-          toggleStyle={toggleStyle}
-          selected={selectedOption}
-          selectedMode={selectedMode}
-          bgcolors={bgcolors}
+      {/* <Router> */}
+      <Navbar
+        title="TextUtils"
+        home="Home"
+        aboutText="About"
+        mode={mode}
+        toggleMode={toggleMode}
+        myStyle={myStyle}
+        modeText={modetext}
+        toggleStyle={toggleStyle}
+        selected={selectedOption}
+        selectedMode={selectedMode}
+        bgcolors={bgcolors}
+      />
+      <Alert alert={alert} />
+      <div className="container my-3">
+        {/* <Routes> */}
+        {/* <Route path="/about" element={<About />} /> */}
+        {/* <Route */}
+        {/* path="/" */}
+        {/* element={ */}
+        <TextForm
+          heading="Enter the text to analyze below"
+          showAlert={showAlert}
         />
-        <Alert alert={alert} />
-        <div className="container my-3">
-          <Routes>
-            <Route path="/about" element={<About />} />
-
-            <Route
-              path="/"
-              element={
-                <TextForm
-                  heading="Enter the text to analyze below"
-                  showAlert={showAlert}
-                />
-              }
-            />
-          </Routes>
-        </div>
-      </Router>
+        // }{/* /> */}
+        {/* </Routes> */}
+      </div>
+      {/* </Router> */}
     </>
   );
 }
