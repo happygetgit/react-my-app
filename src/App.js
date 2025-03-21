@@ -116,7 +116,7 @@ function App() {
           heading="Enter the text to analyze below"
           showAlert={showAlert}
         />
-        // }{/* /> */}
+        {/* /> */}
         {/* </Routes> */}
       </div>
       {/* </Router> */}
