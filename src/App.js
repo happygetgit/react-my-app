@@ -6,6 +6,8 @@ import About from "./components/About";
 import React, { useState } from "react";
 import Alert from "./components/Alert";
 
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 function App() {
   const [modetext, setmodeText] = useState("Light Mode");
   const [myStyle, setMyStyle] = useState({
@@ -88,32 +90,37 @@ function App() {
 
   return (
     <>
-      <Navbar
-        title="TextUtils"
-        home="Home"
-        aboutText="About"
-        mode={mode}
-        toggleMode={toggleMode}
-        myStyle={myStyle}
-        modeText={modetext}
-        toggleStyle={toggleStyle}
-        selected={selectedOption}
-        selectedMode={selectedMode}
-        bgcolors={bgcolors}
-      />
-      <Alert alert={alert} />
-      <div className="container my-3">
-        <TextForm
-          heading="Enter the text to analyze below"
-          showAlert={showAlert}
-        />
-        <About
+      <Router>
+        <Navbar
+          title="TextUtils"
+          home="Home"
+          aboutText="About"
           mode={mode}
           toggleMode={toggleMode}
           myStyle={myStyle}
+          modeText={modetext}
           toggleStyle={toggleStyle}
+          selected={selectedOption}
+          selectedMode={selectedMode}
+          bgcolors={bgcolors}
         />
-      </div>
+        <Alert alert={alert} />
+        <div className="container my-3">
+          <Routes>
+            <Route path="/about" element={<About />} />
+
+            <Route
+              path="/"
+              element={
+                <TextForm
+                  heading="Enter the text to analyze below"
+                  showAlert={showAlert}
+                />
+              }
+            />
+          </Routes>
+        </div>
+      </Router>
     </>
   );
 }
