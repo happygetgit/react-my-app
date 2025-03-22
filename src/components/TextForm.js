@@ -59,16 +59,19 @@ export default function TextForm(props) {
             rows="8"
           />
         </div>
-        <button className="btn btn-primary mx-2" onClick={handleClick}>
+        <button className="btn btn-primary mx-2 my-1" onClick={handleClick}>
           Convert to UpperCase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handlelowClick}>
+        <button className="btn btn-primary mx-2 my-1" onClick={handlelowClick}>
           Convert to LowerCase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleclearClick}>
+        <button
+          className="btn btn-primary mx-2 my-1"
+          onClick={handleclearClick}
+        >
           Clear Text
         </button>
-        <button className="btn btn-primary mx-2" onClick={findEmailID}>
+        <button className="btn btn-primary mx-2 my-1" onClick={findEmailID}>
           Find EmailId
         </button>
       </div>
