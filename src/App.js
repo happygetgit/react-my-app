@@ -1,12 +1,11 @@
 // import logo from "./logo.svg";
 import "./App.css";
+import React, { useState } from "react";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import About from "./components/About";
-import React, { useState } from "react";
 import Alert from "./components/Alert";
-
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [modetext, setmodeText] = useState("Light Mode");
